@@ -12,10 +12,8 @@ function CountPerTypeTransaction(array){
 
           }
     });
-    return JSON.stringify({
-      "Investasi": "0.5",
-      "Pemindahan Dana": "1"
-    })
+    return transactionTotal;
+
     // return JSON.stringify(transactionTotal)
 
 }

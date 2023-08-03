@@ -27,21 +27,24 @@ class Controller{
         })
     }
     static showEditForm(req,res){
+        const {errors} = req.query
         const {id} = req.params
         Account.findByPk(id).then(result => {
-            res.render('./admin/editUser', {data:result})
+            res.render('./admin/editUser', {data:result, errors})
         }).catch(err => {
             res.send(err)
         })
     }
     static edit(req,res){
+        const errors = {}
         const {body} = req
         const {id} = req.params
         Account.update(body,
         { where: { id: id }}).then(result => {
             res.redirect("/admin/userlist")
         }).catch(err => {
-            res.send(err)
+            errors.msg = err.message
+            res.redirect("/admin/edit/"+id+"?errors="+errors.msg)
         })
 
     }

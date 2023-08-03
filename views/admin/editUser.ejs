@@ -12,6 +12,12 @@
     <title>Edit user</title>
 </head>
 <body>
+    <% if (errors) { %>
+
+        <% errors.split(",").forEach(element => { %>
+          <h4 class="text-danger"><%= element.replace("\n", "") %></h4>
+        <% }) %>
+      <% } %>
     <%- include('./partials/nav') %>
       <!-- form  -->
       <section class="p-4" id="main-content">
