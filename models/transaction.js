@@ -9,6 +9,14 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    get TransactionDate(){
+      let year = this.createdAt.getFullYear();
+      let month = String(this.createdAt.getMonth() + 1).padStart(2, '0'); // JavaScript months are 0-11
+      let day = String(this.createdAt.getDate()).padStart(2, '0');
+
+      let formattedDate = `${year}-${month}-${day}`;
+      return formattedDate
+    }
     static associate(models) {
       Transaction.belongsToMany(models.TransactionType, {
         through: models.TransactionTypeRelation,

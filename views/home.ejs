@@ -9,6 +9,9 @@
 <body>
     <div class="align-items-center" style="height:100px;">
     <div class="container mt-5">
+        <% if (msg) { %>
+         <h3 class="text-primary"><%= msg %></h3>
+        <% } %>
         <h3>Login User Manesty-Capital</h3>
         <% if (errors) { %>
             <% const Parse = JSON.parse(errors) %>
@@ -24,8 +27,10 @@
                 <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
                 <label for="floatingPassword">Password</label>
               </div>
-              <button type="submit" class="btn btn-primary">Log in</button> 
+              <button type="submit" class="btn btn-primary mb-5">Log in</button> 
+              <p>Don't have an account? <a href="/register">Register</p></a> 
         </form>
+       
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>

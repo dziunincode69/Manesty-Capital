@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const bcrypt = require('bcrypt');
 module.exports = (sequelize, DataTypes) => {
   class Account extends Model {
     /**
@@ -64,9 +65,13 @@ module.exports = (sequelize, DataTypes) => {
           args:true,
           msg: "please input password "
         },
-        notNull: {
+        notNull: {  
           args: true,
           msg: "please input password "
+        },
+        len:{
+          args: 8,
+          msg: "Password minimal 8 character"
         }
       }
     },
@@ -75,6 +80,14 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Account',
+    hooks: {
+      beforeCreate(value, opt){
+        const password = value["password"]
+        value["balance"] = 0
+        value["password"] = bcrypt.hashSync(password, 10)
+        value["RoleId"] = 2
+      }
+    }
   });
   return Account;
 };

@@ -4,8 +4,8 @@ const helper = require('../helper/convert');
 
 class User {
     static userHome(req,res){
-        const {errors} = req.query
-        res.render("./home", {errors})
+        const {errors,msg} = req.query
+        res.render("./home", {errors,msg})
     }
     static userDashboard(req,res){
         const {id,email,name} = req.session.user
@@ -36,8 +36,8 @@ class User {
                     }
                 ]
             }).then(transactionList => {
-                res.send(transactionList)
-                // res.render('dashboard', {card, profile, transactionList, helper})
+                // res.send(transactionList)
+                res.render('dashboard', {card, profile, transactionList, helper})
             })
            
         })
@@ -60,6 +60,7 @@ class User {
             msg: ""
         }
         const {email,password} = req.body
+        
         Account.FindAccount(email,Role).then(result => {
             if(result.length !== 0){
                 const user = result[0]
@@ -86,6 +87,8 @@ class User {
                         throw new Error("Your account cannot login to user")
                     }
                 })
+            } else if(!email){
+                throw new Error("Please input email")
             } else {
                 throw new Error("Account with email "+email+" not found")
             }
@@ -95,6 +98,20 @@ class User {
             res.redirect("/?errors="+JSON.stringify(errors))
         })
         
+    }
+    static registerForm(req,res){
+        const {errors} = req.query
+        res.render('registerForm',{errors: errors})
+    }
+    static regiterAccount(req,res){
+        const errors = {}
+        const {body} = req
+        Account.create(body).then(result => {
+            res.redirect("/?msg=Success Register")
+        }).catch(err => {
+            errors.msg = err.message
+            res.redirect("/register?errors="+errors.msg)
+        })
     }
 
 }
