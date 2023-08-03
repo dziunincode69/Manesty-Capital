@@ -36,13 +36,11 @@ class User {
                     }
                 ]
             }).then(transactionList => {
-                // res.send(transactionList)
                 res.render('dashboard', {card, profile, transactionList, helper})
             })
            
         })
         .catch(err => {
-            console.log(err)
             res.send(err)
         })
     }
@@ -60,7 +58,6 @@ class User {
             msg: ""
         }
         const {email,password} = req.body
-        
         Account.FindAccount(email,Role).then(result => {
             if(result.length !== 0){
                 const user = result[0]
@@ -81,7 +78,6 @@ class User {
                             email: user.email,
                             role: roleUser
                         };
-                        console.log(req.session.user)
                         res.redirect("/dashboard")
                     } else {
                         throw new Error("Your account cannot login to user")
@@ -107,8 +103,13 @@ class User {
         const errors = {}
         const {body} = req
         Account.create(body).then(result => {
+            const GenerateDebit = Card.GenerateDebit()
+            GenerateDebit.AccountId = result.id
+            return Card.create(GenerateDebit)
+        }).then(_ => {
             res.redirect("/?msg=Success Register")
-        }).catch(err => {
+        })
+        .catch(err => {
             errors.msg = err.message
             res.redirect("/register?errors="+errors.msg)
         })

@@ -14,6 +14,27 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'AccountId',
       });
     }
+    static GenerateDebit() {
+      let baseCard = "4";
+      let currentDate = new Date();
+      let expYear = String(currentDate.getFullYear()).substr(-2);
+      let expMonth = String(currentDate.getMonth() + 1).padStart(2, '0');
+      let cvv = ""
+      for (let index = 0; index < 15; index++) {
+        baseCard += Math.floor(Math.random() * 10);
+      }
+      for (let index = 0; index < 3; index++) {
+       cvv += Math.floor(Math.random() * 10);
+      }
+      const data = {
+        cardNumber: baseCard,
+        expMonth: expMonth,
+        expYear: expYear,
+        cvv: cvv
+      }
+    
+      return data
+    }
   }
   Card.sensorCard = function(value) {
     return value.substr(-4)
@@ -22,18 +43,6 @@ module.exports = (sequelize, DataTypes) => {
     cardNumber: {
       type: DataTypes.STRING,
       allowNull: false, 
-      validate: {
-        notEmpty: {
-          msg:"Please input Card"
-        },
-        notNull: {
-          msg:"Please input Card"
-        },
-        isCreditCard: {
-          args: true,
-          msg: "Please input valid card"
-        }
-      }
     },
     expMonth: {
       type: DataTypes.STRING,

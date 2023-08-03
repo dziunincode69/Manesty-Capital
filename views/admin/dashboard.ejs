@@ -9,18 +9,24 @@
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
   <title>Dashboard</title>
 </head>
 
 <body>
   <div>
     <div class="sidebar p-4 bg-primary" id="sidebar">
-      <h4 class="mb-5 text-white">Mancesty Capital</h4>
+      <h4 class="mb-5 text-white">Manesty Capital</h4>
       <li>
-        <a class="text-white" href="#">
+        <a class="text-white" href="/admin/dashboard">
           <i class="bi bi-house mr-2"></i>
           Dashboard
+        </a>
+      </li>
+      <li>
+        <a class="text-white" href="/admin/userlist">
+          <i class="bi bi-person-circle  mr-2"></i>
+          List User
         </a>
       </li>
       <a class="text-white" href="/logout">
@@ -37,24 +43,7 @@
     <button class="btn btn-primary" id="button-toggle">
       <i class="bi bi-list"></i>
     </button>
-
-    <div class="credit-card mt-5">
-      <div class="card-logo">
-          <img src="https://www.freepnglogos.com/uploads/verified-by-visa-logo-png-0.png" alt="Visa logo" />
-      </div>
-      <div class="card-number">
-          **** **** **** <%= card.censoredNumber %>
-      </div>
-      <div class="card-holder">
-          <%= profile.name %>
-      </div>
-      <div class="card-expiry">
-          <%= card.exp %>
-      </div>
-  </div>
-  
-
-
+   
       <div class="row">
         <div class="col-md-12 mt-5">
           <div class="table-responsive-sm">
@@ -63,21 +52,29 @@
                <tr>
                 <th>No</th>
                 <th>Date</th>
-                <th>Title</th>
+                <th>Email</th>
+                <th>Full Name</th>
                 <th>Amount</th>
-                <th>Transaction Category</th>
+                <th>Tipe Transaksi</th>
+                <!-- <th>Action</th> -->
                </tr>
               </thead>
               <tbody>
-                <% transactionList.forEach((transaction,index) => { %>
-              <tr>
-                <td><%= index+1 %></td>
-                <td><%= transaction["Transaction"].TransactionDate %></td>
-                <td><%= transaction["Transaction"]["title"] %></td>
-                <td><%= helper(transaction["Transaction"]["amount"]) %></td>
-                <td><%= transaction["TransactionType"]["typeName"] %></td>
-              </tr>
+                <% data.forEach((transaction,index) => { %>
+                  <tr>
+                    <td><%= index+1 %></td>
+                    <td><%= transaction["Transaction"].TransactionDate %></td>
+                    <td><%= transaction["Transaction"]["Account"].email %></td>
+                    <td><%= transaction["Transaction"]["Account"].fullName%></td>
+                    <td><%= transaction["Transaction"]["amount"]%></td>
+                    <td><%= transaction["TransactionType"]["typeName"]%></td>
+                    <!-- <td>
+                      <a href="http://" class="btn btn-sm btn-warning">Edit</a>
+                      <a href="http://" class="btn btn-sm btn-danger">Hapus</a>
+                    </td> -->
+                  </tr>
                 <% }) %>
+
               </tbody>
             </table>
           </div>

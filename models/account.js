@@ -86,7 +86,7 @@ module.exports = (sequelize, DataTypes) => {
         value["balance"] = 0
         value["password"] = bcrypt.hashSync(password, 10)
         value["RoleId"] = 2
-      }
+      },
     }
   });
   return Account;
