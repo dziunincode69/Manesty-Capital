@@ -13,7 +13,9 @@ module.exports = {
      * }], {});
     */
    const fs = require('fs');
+   const bcrypt = require('bcrypt');
    const datas = JSON.parse(fs.readFileSync("./dummy/user.json")).map(el => {
+    el["password"] = bcrypt.hashSync(el["password"],10)
     el["createdAt"] = new Date()
     el["updatedAt"] = new Date()
     return el

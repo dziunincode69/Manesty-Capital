@@ -19,8 +19,6 @@ class User {
                 include: [
                     {
                         model: Transaction,
-                        
-                        
                     },
                     {
                         model: TransactionType,
@@ -73,6 +71,7 @@ class User {
             res.send(err)
         })
     }
+
     static userLogout(req,res){
         req.session.destroy(err => {
             if(err){
@@ -82,6 +81,7 @@ class User {
             }
         })
     }
+    
     static userLogin(req,res){
         const errors = {
             msg: ""

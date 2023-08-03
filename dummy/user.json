@@ -1,9 +1,255 @@
 [
+  {
+    "fullName": "John Doe",
+    "email": "admin@manesty.com",
+    "password": "admin",
+    "balance": 100000,
+    "RoleId": 1
+    },
     {
-      "fullName": "John Doe",
-      "email": "manesty@manesty.com",
-      "password": "manesty",
-      "balance": 100000,
-      "RoleId" : 1
+    "fullName": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "password": "example123",
+    "balance": 75000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Michael Johnson",
+    "email": "michael.johnson@emailprovider.com",
+    "password": "qwerty987",
+    "balance": 85000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Emily Brown",
+    "email": "emily.brown@testmail.com",
+    "password": "p@ssw0rd",
+    "balance": 120000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "William Lee",
+    "email": "w.lee@example.com",
+    "password": "strongPassword",
+    "balance": 60000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Sophia Martinez",
+    "email": "s.martinez@emailprovider.com",
+    "password": "hello123",
+    "balance": 90000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "James Anderson",
+    "email": "james.anderson@testmail.com",
+    "password": "pa$$w0rd",
+    "balance": 50000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Olivia Wilson",
+    "email": "olivia.wilson@example.com",
+    "password": "secure123",
+    "balance": 80000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Robert Thomas",
+    "email": "r.thomas@emailprovider.com",
+    "password": "password123",
+    "balance": 70000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Ava Garcia",
+    "email": "ava.garcia@testmail.com",
+    "password": "test1234",
+    "balance": 95000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Matthew Rodriguez",
+    "email": "m.rodriguez@example.com",
+    "password": "123456",
+    "balance": 110000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Isabella Lopez",
+    "email": "isabella.lopez@emailprovider.com",
+    "password": "examplePassword",
+    "balance": 67000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Ethan Moore",
+    "email": "e.moore@testmail.com",
+    "password": "securePass",
+    "balance": 89000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Mia Hill",
+    "email": "mia.hill@example.com",
+    "password": "myp@ssword",
+    "balance": 72000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Alexander Scott",
+    "email": "a.scott@emailprovider.com",
+    "password": "abcd1234",
+    "balance": 84000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Charlotte Green",
+    "email": "charlotte.green@testmail.com",
+    "password": "123qweasdzxc",
+    "balance": 78000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Daniel Baker",
+    "email": "d.baker@example.com",
+    "password": "password",
+    "balance": 68000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Scarlett King",
+    "email": "scarlett.king@emailprovider.com",
+    "password": "example123",
+    "balance": 93000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "David Ward",
+    "email": "david.ward@testmail.com",
+    "password": "testPass",
+    "balance": 67000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Lily Ramirez",
+    "email": "l.ramirez@example.com",
+    "password": "myp@ss123",
+    "balance": 82000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Aiden Gray",
+    "email": "aiden.gray@emailprovider.com",
+    "password": "password123",
+    "balance": 75000,
+    "RoleId": 1
+    },
+    
+    {
+    "fullName": "Amelia Adams",
+    "email": "amelia.adams@testmail.com",
+    "password": "securePass123",
+    "balance": 99000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Henry Wright",
+    "email": "h.wright@example.com",
+    "password": "hello1234",
+    "balance": 62000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Grace Turner",
+    "email": "grace.turner@emailprovider.com",
+    "password": "password@123",
+    "balance": 88000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Joseph Parker",
+    "email": "joseph.parker@testmail.com",
+    "password": "secure1234",
+    "balance": 72000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Chloe Collins",
+    "email": "chloe.collins@example.com",
+    "password": "example@123",
+    "balance": 95000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Samuel Bennett",
+    "email": "s.bennett@emailprovider.com",
+    "password": "password987",
+    "balance": 89000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Zoey Wood",
+    "email": "zoey.wood@testmail.com",
+    "password": "test@123",
+    "balance": 80000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Christopher Cook",
+    "email": "c.cook@example.com",
+    "password": "securePassword",
+    "balance": 94000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Hannah Ross",
+    "email": "hannah.ross@emailprovider.com",
+    "password": "test12345",
+    "balance": 73000,
+    "RoleId": 2
+    },
+    
+    {
+    "fullName": "Andrew Morgan",
+    "email": "andrew.morgan@testmail.com",
+    "password": "password1",
+    "balance": 105000,
+    "RoleId": 2
+    },
+    {
+      "fullName": "Andrew Jason",
+      "email": "Jason.morgan@testmail.com",
+      "password": "Admeen",
+      "balance": 2400021,
+      "RoleId": 2
     }
 ]
