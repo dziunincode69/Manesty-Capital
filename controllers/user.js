@@ -36,8 +36,8 @@ class User {
                     }
                 ]
             }).then(transactionList => {
-                res.send(transactionList)
-                // res.render('dashboard', {card, profile, transactionList, helper})
+                // res.send(transactionList)
+                res.render('dashboard', {card, profile, transactionList, helper})
             })
            
         })
