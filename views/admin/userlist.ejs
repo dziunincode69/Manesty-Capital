@@ -33,7 +33,7 @@
                     <td><%= index+1 %></td>
                     <td><%= account.email %></td>
                     <td><%= account.fullName%></td>
-                    <td><%= account.amount%></td>
+                    <td><%= ConvertToUsd(account.balance)%></td>
                     <td>
                       <a href="/admin/edit/<%= account.id%>" class="btn btn-sm btn-secondary">Edit</a>
                       <a href="/admin/delete/<%= account.id%>" class="btn btn-sm btn-danger">Delete</a>

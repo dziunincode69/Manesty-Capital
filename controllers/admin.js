@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const {Account,Role,Card,Transaction,TransactionType,TransactionTypeRelation} = require('../models/');
-const helper = require('../helper/convert');
+const {ConvertToUsd,CountPerTypeTransaction}  = require('../helper/convert');
 
 class Controller{
     static showAdminHome(req,res){
@@ -19,8 +19,8 @@ class Controller{
                 }
             ]
         }).then(transactionList => {
-            const CountPerType = helper.CountPerTypeTransaction(transactionList)
-            res.render('./admin/dashboard',{data: transactionList, perType:CountPerType})
+            const CountPerType = CountPerTypeTransaction(transactionList)
+            res.render('./admin/dashboard',{data: transactionList, perType:CountPerType,ConvertToUsd})
          })
         .catch(err => {
             res.send(err)
@@ -62,7 +62,7 @@ class Controller{
     }
     static ListUser(req,res){
         Account.findAll().then(result => {
-            res.render("./admin/userlist", {data: result})
+            res.render("./admin/userlist", {data: result,ConvertToUsd})
         }).catch(err =>{
             res.send(err.message)
         })

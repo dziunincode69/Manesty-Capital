@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const {Account,Role,Card,Transaction,TransactionType,TransactionTypeRelation} = require('../models/');
-const helper = require('../helper/convert');
+const {ConvertToUsd} = require('../helper/convert');
 const {Op} = require('sequelize');
 
 class User {
@@ -67,7 +67,7 @@ class User {
             trxList = transactionList
             return TransactionType.findAll()   
             }).then(result => {
-                res.render('dashboard', {card, profile, transactionList:trxList, helper,type: result})
+                res.render('dashboard', {card, profile, transactionList:trxList, helper:ConvertToUsd,type: result})
             })
         .catch(err => {
             res.send(err)

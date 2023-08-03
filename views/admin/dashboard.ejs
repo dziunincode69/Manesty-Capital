@@ -78,7 +78,7 @@
                     <td><%= transaction["Transaction"].TransactionDate %></td>
                     <td><%= transaction["Transaction"]["Account"].email %></td>
                     <td><%= transaction["Transaction"]["Account"].fullName%></td>
-                    <td><%= transaction["Transaction"]["amount"]%></td>
+                    <td><%= ConvertToUsd(transaction["Transaction"]["amount"])%></td>
                     <td><%= transaction["TransactionType"]["typeName"]%></td>
                     <!-- <td>
                       <a href="http://" class="btn btn-sm btn-warning">Edit</a>
