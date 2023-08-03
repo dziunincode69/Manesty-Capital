@@ -1,5 +1,24 @@
 function ConvertToUsd(num){
     return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'USD' }).format(num)
 }
+function CountPerTypeTransaction(array){
+    let transactionTotal = {}
+    array.forEach(transaction => {
+        const perType = transaction["TransactionType"]["typeName"]
+        if (transactionTotal[perType]) {
+            transactionTotal[perType]++;
+          } else {
+            transactionTotal[perType] = 1;
 
-module.exports = ConvertToUsd
+          }
+    });
+    return JSON.stringify({
+      "Investasi": "0.5",
+      "Pemindahan Dana": "1"
+    })
+    // return JSON.stringify(transactionTotal)
+
+}
+
+
+module.exports = {ConvertToUsd,CountPerTypeTransaction}

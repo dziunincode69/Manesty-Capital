@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const {Account,Role,Card,Transaction,TransactionType,TransactionTypeRelation} = require('../models/');
+const helper = require('../helper/convert');
 
 class Controller{
     static showAdminHome(req,res){
@@ -18,15 +19,16 @@ class Controller{
                 }
             ]
         }).then(transactionList => {
-            res.render("./admin/dashboard", {data: transactionList})
-        }).catch(err => {
+            const CountPerType = helper.CountPerTypeTransaction(transactionList)
+            res.render('./admin/dashboard',{data: transactionList, perType:CountPerType})
+         })
+        .catch(err => {
             res.send(err)
         })
     }
     static showEditForm(req,res){
         const {id} = req.params
         Account.findByPk(id).then(result => {
-            console.log(result)
             res.render('./admin/editUser', {data:result})
         }).catch(err => {
             res.send(err)
@@ -39,7 +41,6 @@ class Controller{
         { where: { id: id }}).then(result => {
             res.redirect("/admin/userlist")
         }).catch(err => {
-            console.log(err)
             res.send(err)
         })
 

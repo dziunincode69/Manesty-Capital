@@ -13,6 +13,18 @@ module.exports = (sequelize, DataTypes) => {
       TransactionTypeRelation.belongsTo(models.Transaction, { foreignKey: 'TransactionId' });
       TransactionTypeRelation.belongsTo(models.TransactionType, { foreignKey: 'TransactionTypeId' });
     }
+    static GetTotalTransactionPerType(includes,includes2){
+      return TransactionTypeRelation.findAll({
+        include: [
+          {
+            model: includes
+          },
+          {
+            model: includes2
+          }
+        ]
+      })
+    }
   }
   TransactionTypeRelation.init({
     TransactionId: DataTypes.INTEGER,

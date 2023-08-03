@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const {Account,Role,Card,Transaction,TransactionType,TransactionTypeRelation} = require('../models/');
 const helper = require('../helper/convert');
+const {Op} = require('sequelize');
 
 class User {
     static userHome(req,res){
@@ -8,11 +9,46 @@ class User {
         res.render("./home", {errors,msg})
     }
     static userDashboard(req,res){
+        const {find} = req.query
         const {id,email,name} = req.session.user
         const card = {}
+        //creating this because requirements must using Op
+        let query = {}
+        if(find){
+            query = {
+                include: [
+                    {
+                        model: Transaction,
+                        
+                        
+                    },
+                    {
+                        model: TransactionType,
+                        where: {
+                            typeName:{
+                                [Op.like]: find
+                            }
+                        }
+                    }
+                ]
+            }
+        } else {
+            query = {
+                include: [
+                    {
+                        model: Transaction
+                    },
+                    {
+                        model: TransactionType
+                    }
+                ]
+            }
+        }
         const profile = {
             email,name
         }
+        let trxList = {}
+
         Card.findOne({
             where: {
                 AccountId: id
@@ -26,20 +62,13 @@ class User {
         })
         .then(result => {
             card.censoredNumber = result
-            TransactionTypeRelation.findAll({
-                include: [
-                    {
-                        model: Transaction
-                    },
-                    {
-                        model: TransactionType
-                    }
-                ]
-            }).then(transactionList => {
-                res.render('dashboard', {card, profile, transactionList, helper})
+            return TransactionTypeRelation.findAll(query)
+        }).then(transactionList => {
+            trxList = transactionList
+            return TransactionType.findAll()   
+            }).then(result => {
+                res.render('dashboard', {card, profile, transactionList:trxList, helper,type: result})
             })
-           
-        })
         .catch(err => {
             res.send(err)
         })

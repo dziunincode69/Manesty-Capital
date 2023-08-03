@@ -52,9 +52,15 @@
           <%= card.exp %>
       </div>
   </div>
-  
-
-
+  <form action="/dashboard" class="mt-5" method="get">
+    <select class="form-select" name="find">
+      <option selected disabled>Filter</option>
+      <% type.forEach(element => { %>
+        <option value="<%= element.typeName %>"><%= element.typeName %></option>
+      <% }) %>
+    </select>
+    <button class="btn btn-primary mt-5 " type="submit">Filter</button>
+  </form>
       <div class="row">
         <div class="col-md-12 mt-5">
           <div class="table-responsive-sm">
@@ -84,9 +90,6 @@
         </div>
       </div>
     
-
-
-
 
   </section>
   <script>
