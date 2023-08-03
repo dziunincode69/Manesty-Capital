@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    line-height: normal;
+  }
+  
+  :root {
+    /* fonts */
+    --font-avenir: Avenir;
+    --font-ubuntu: Ubuntu;
+    --font-ibm-plex-mono: "IBM Plex Mono";
+    --font-lexend-deca: "Lexend Deca";
+    --font-montserrat: Montserrat;
+  
+    /* font sizes */
+    --font-size-lg: 18px;
+    --font-size-mini: 15px;
+    --font-size-lgi: 19px;
+    --font-size-mini-6: 14.6px;
+    --font-size-base: 16px;
+    --font-size-3xs-9: 9.9px;
+    --font-size-xs: 12px;
+    --font-size-6xl: 25px;
+    --font-size-11xl: 30px;
+    --font-size-5xl: 24px;
+    --font-size-16xl: 35px;
+    --font-size-21xl: 40px;
+    --font-size-4xl: 23px;
+    --font-size-sm: 14px;
+  
+    /* Colors */
+    --color-white: #fff;
+    --color-cornflowerblue-100: #4a90e2;
+    --color-cornflowerblue-200: #2366b5;
+    --color-gray-100: #fafbfd;
+    --color-gray-200: rgba(255, 255, 255, 0.03);
+    --color-dimgray: #535353;
+    --color-gainsboro-100: #e9e2e2;
+    --color-gainsboro-200: #e4e4e4;
+    --color-silver: #ccc7c7;
+    --color-darkgray-100: #aba1a1;
+    --color-darkgray-200: #9e9e9e;
+    --color-black: #000;
+    --color-crimson-100: #d0021b;
+    --color-crimson-200: rgba(208, 2, 27, 0.22);
+    --color-darkslategray-100: #224957;
+  
+    /* Gaps */
+    --gap-7xs: 6px;
+    --gap-3xs-5: 9.5px;
+    --gap-8xs: 5px;
+    --gap-37xl: 56px;
+    --gap-6xs: 7px;
+    --gap-3xs: 10px;
+  
+    /* border radiuses */
+    --br-81xl: 100px;
+    --br-8xs: 5px;
+    --br-lg-3: 18.3px;
+    --br-xl: 20px;
+    --br-11xs: 2px;
+    --br-63xl-1: 82.1px;
+    --br-10xs: 3px;
+    --br-3xs: 10px;
+  }
+  

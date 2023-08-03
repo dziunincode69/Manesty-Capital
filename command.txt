@@ -1,0 +1,20 @@
+sequelize-cli model:generate --name Account --attributes fullName:string,email:string,password:string,balance:integer
+sequelize-cli model:generate --name Role --attributes role:string
+sequelize-cli model:generate --name Transaction --attributes title:string,amount:integer
+sequelize-cli model:generate --name TransactionType --attributes typeName:string 
+sequelize-cli model:generate --name Card --attributes cardNumber:string,expMonth:string,expYear:string,cvv:string
+sequelize-cli model:generate --name TransactionTypeRelations
+
+sequelize-cli migration:generate --name add-fk-role-id-to-accounts
+sequelize-cli migration:generate --name add-fk-account-id-to-card
+sequelize-cli migration:generate --name add-fk-account-id-to-transactions
+sequelize-cli migration:generate --name add-fk-transaction-id-to-TransactionTypeRelation
+sequelize-cli migration:generate --name add-fk-transactiontype-id-to-TransactionTypeRelation
+
+
+
+sequelize-cli seed:generate --name Account
+sequelize-cli seed:generate --name Role
+sequelize-cli seed:generate --name Transaction
+sequelize-cli seed:generate --name TransactionType
+sequelize-cli seed:generate --name Card

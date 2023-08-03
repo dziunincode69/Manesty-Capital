@@ -1,0 +1,9 @@
+[
+    {
+      "fullName": "John Doe",
+      "email": "manesty@manesty.com",
+      "password": "manesty",
+      "balance": 100000,
+      "RoleId" : 1
+    }
+]
