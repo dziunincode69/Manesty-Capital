@@ -12,9 +12,13 @@ sequelize-cli migration:generate --name add-fk-transaction-id-to-TransactionType
 sequelize-cli migration:generate --name add-fk-transactiontype-id-to-TransactionTypeRelation
 
 
-
 sequelize-cli seed:generate --name Account
 sequelize-cli seed:generate --name Role
 sequelize-cli seed:generate --name Transaction
 sequelize-cli seed:generate --name TransactionType
 sequelize-cli seed:generate --name Card
+
+
+sequelize db:create 
+sequelize db:migrate 
+sequelize db:seed:all 

@@ -90,7 +90,7 @@
         },
         
         {
-        "TransactionTypeId": 1,
+        "TransactionTypeId": 3,
         "TransactionId": 19
         },
         
@@ -105,7 +105,7 @@
         },
         
         {
-        "TransactionTypeId": 1,
+        "TransactionTypeId": 3,
         "TransactionId": 22
         },
         
@@ -135,12 +135,12 @@
         },
         
         {
-        "TransactionTypeId": 1,
+        "TransactionTypeId": 3,
         "TransactionId": 28
         },
         
         {
-        "TransactionTypeId": 2,
+        "TransactionTypeId": 3,
         "TransactionId": 29
         },
         
@@ -150,12 +150,12 @@
         },
         
         {
-        "TransactionTypeId": 1,
+        "TransactionTypeId": 3,
         "TransactionId": 31
         },
         
         {
-        "TransactionTypeId": 2,
+        "TransactionTypeId": 3,
         "TransactionId": 32
         }
 ]
