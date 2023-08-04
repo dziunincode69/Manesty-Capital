@@ -13,10 +13,14 @@ function CountPerTypeTransaction(array){
           }
     });
     return transactionTotal;
+}
+function GenerateRandomName() {
+  const firstNames = ['John', 'Emma', 'Michael', 'Sophia', 'James', 'Olivia', 'Robert', 'Ava', 'William', 'Isabella'];
+  const lastNames = ['Smith', 'Johnson', 'Brown', 'Taylor', 'Anderson', 'Martinez', 'Garcia', 'Harris', 'Lee', 'Clark'];
 
-    // return JSON.stringify(transactionTotal)
-
+  const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+  const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+  return `${randomFirstName} ${randomLastName}`;
 }
 
-
-module.exports = {ConvertToUsd,CountPerTypeTransaction}
+module.exports = {ConvertToUsd,CountPerTypeTransaction, GenerateRandomName}

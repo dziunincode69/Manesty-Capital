@@ -48,14 +48,24 @@
     <button class="btn btn-primary" id="button-toggle">
       <i class="bi bi-list"></i>
     </button>
-    <div class="row">
+    <div class="row" style="height: 300px">
       <div class="col-md-5 mt-6">
         <canvas id="myChart">
   
         </canvas>
       </div>
     </div>  
-   
+    <div class="row">
+      <form action="/admin/dashboard" class="mt-5" method="get">
+        <select class="form-select" name="find">
+          <option selected disabled>Filter</option>
+          <% listType.forEach(element => { %>
+            <option value="<%= element.id %>"><%= element.typeName %></option>
+          <% }) %>
+        </select>
+        <button class="btn btn-primary mt-5 " type="submit">Filter</button>
+      </form>
+    </div>
       <div class="row">
         <div class="col-md-12 mt-5">
           <div class="table-responsive-sm">
@@ -136,10 +146,17 @@
                           'rgba(153, 102, 255, 1)',
                           'rgba(255, 159, 64, 1)'
                       ],
-                      borderWidth: 2
+                      borderWidth: 3
                   }]
               },
               options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: {
+                  padding: {
+                    left: 55
+                  },
+                },
                   scales: {
                       yAxes: [{
                           ticks: {

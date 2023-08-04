@@ -22,3 +22,9 @@ sequelize-cli seed:generate --name Card
 sequelize db:create 
 sequelize db:migrate 
 sequelize db:seed:all 
+
+
+
+jason@manesty.wtf
+saninkicker123
+

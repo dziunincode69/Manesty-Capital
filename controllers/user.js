@@ -34,7 +34,7 @@ class User {
             query = {
                 include: [
                     {
-                        model: Transaction
+                        model: Transaction,
                     },
                     {
                         model: TransactionType

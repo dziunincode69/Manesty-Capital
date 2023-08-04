@@ -1,26 +1,44 @@
 const bcrypt = require('bcrypt');
 const {Account,Role,Card,Transaction,TransactionType,TransactionTypeRelation} = require('../models/');
 const {ConvertToUsd,CountPerTypeTransaction}  = require('../helper/convert');
-
+const {Op} = require('sequelize');
 class Controller{
     static showAdminHome(req,res){
         const {errors} = req.query
         res.render("./admin/login", {errors})
     }
     static dashboard(req,res){
-        TransactionTypeRelation.findAll({
-            include: [
-                {
-                    model: Transaction,
-                    include: Account
-                },
-                {
-                    model: TransactionType
+        const {find} = req.query
+        let CountPerType = {}
+        let transactionlist = {}
+        let query = ``
+        if (find) {
+            // Use the Op.like operator with the correct pattern string
+            query = {
+              include: [
+                { model: Transaction, include: { model: Account } },
+                { model: TransactionType, 
+                    where: {
+                        id: find
+                    }
                 }
-            ]
-        }).then(transactionList => {
-            const CountPerType = CountPerTypeTransaction(transactionList)
-            res.render('./admin/dashboard',{data: transactionList, perType:CountPerType,ConvertToUsd})
+              ],
+              
+            };
+          } else {
+            query = {
+              include: [
+                { model: Transaction, include: { model: Account } },
+                { model: TransactionType }
+              ]
+            };
+          }
+        TransactionTypeRelation.findAll(query).then(result => {
+            transactionlist = result
+            CountPerType = CountPerTypeTransaction(result)
+            return TransactionType.findAll()
+         }).then(result => {
+            res.render('./admin/dashboard',{data: transactionlist, perType:CountPerType,ConvertToUsd, listType: result})
          })
         .catch(err => {
             res.send(err)
@@ -61,7 +79,11 @@ class Controller{
         })
     }
     static ListUser(req,res){
-        Account.findAll().then(result => {
+        Account.findAll({
+            order: [
+                ["balance","DESC"]
+            ]
+        }).then(result => {
             res.render("./admin/userlist", {data: result,ConvertToUsd})
         }).catch(err =>{
             res.send(err.message)
