@@ -75,7 +75,20 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    balance: DataTypes.INTEGER,
+    balance: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull:{
+          args: true,
+          msg: "Please input balance"
+        },
+        isInt: {
+          args: true,
+          msg: "Please input balance on integer"
+        }
+      }
+    },
     RoleId: DataTypes.INTEGER
   }, {
     sequelize,
