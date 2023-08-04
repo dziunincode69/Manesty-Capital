@@ -4,7 +4,8 @@ const Admin = require('./admin.js');
 const UserController = require('../controllers/user.js');
 const Middlewares = require('../middlewares/auth.js'); 
 
-router.get("/", UserController.userHome)
+router.get("/", UserController.landingPage)
+router.get("/login", UserController.userHome)
 router.post("/login", UserController.userLogin)
 
 router.get("/register", UserController.registerForm)

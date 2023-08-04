@@ -4,6 +4,9 @@ const {ConvertToUsd} = require('../helper/convert');
 const {Op} = require('sequelize');
 
 class User {
+    static landingPage(req,res){
+        res.render("landing.ejs")
+    }
     static userHome(req,res){
         const {errors,msg} = req.query
         res.render("./home", {errors,msg})
@@ -120,7 +123,7 @@ class User {
         })
         .catch(err => {
             errors.msg = err.message
-            res.redirect("/?errors="+JSON.stringify(errors))
+            res.redirect("/login?errors="+JSON.stringify(errors))
         })
         
     }
@@ -136,7 +139,7 @@ class User {
             GenerateDebit.AccountId = result.id
             return Card.create(GenerateDebit)
         }).then(_ => {
-            res.redirect("/?msg=Success Register")
+            res.redirect("/login?msg=Success Register")
         })
         .catch(err => {
             errors.msg = err.message
